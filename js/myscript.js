@@ -15,9 +15,7 @@ var result = theBigRectangle.subtract(theRectangleToBeCutOut)
 theRectangleToBeCutOut.visible = false
 theBigRectangle.visible = false
 result.fillColor = "yellow"
-
-
-// words.children.level1.children.level2.children.level3.children.outline.fillColor = "red"
+result.position = view.center
 
 // words.fillColor = null;
 // words.strokeColor = 'black';
