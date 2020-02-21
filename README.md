@@ -12,3 +12,9 @@ setInterval(() => {words.children.level1.children.level2.children.level3.childre
 words.children.level1.children.level2.children.level3.children.arrow1.visible = false
 false
 ```
+
+
+## To do
+
+1. Dragging/Drawing the chain inside the letter cutout
+2. Resizing the SVG/ Canvas so we can actually see it
