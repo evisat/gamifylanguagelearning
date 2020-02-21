@@ -4,14 +4,29 @@
 var words = project.importSVG(document.getElementById('svg'));
 words.visible = true; // Turn off the effect of display:none;
 window.words = words
-words.fillColor = null;
-words.strokeColor = 'black';
-var yesGroup = words.children.yes;
 
-var noGroup = words.children.no;
-// Resize the words to fit snugly inside the view:
-words.fitBounds(view.bounds);
-words.scale(0.8);
+var theRectangleWithTheHole = Path.Rectangle(0, 0, 1000, 1000)
+theRectangleWithTheHole.fillColor = "blue"
+
+var theRectangleToBeCutOut = Path.Rectangle(10, 10, 100, 100)
+theRectangleToBeCutOut.fillColor = "green"
+
+var result = theRectangleWithTheHole.subtract(theRectangleToBeCutOut)
+theRectangleToBeCutOut.visible = false
+theRectangleWithTheHole.visible = false
+result.fillColor = "yellow"
+
+
+// words.children.level1.children.level2.children.level3.children.outline.fillColor = "red"
+
+// words.fillColor = null;
+// words.strokeColor = 'black';
+// var yesGroup = words.children.yes;
+
+// var noGroup = words.children.no;
+// // Resize the words to fit snugly inside the view:
+// words.fitBounds(view.bounds);
+// words.scale(0.8);
 
 // yesGroup.position = view.center;
 // noGroup.position = [-900, -900];
