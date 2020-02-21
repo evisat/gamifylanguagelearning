@@ -5,15 +5,15 @@ var words = project.importSVG(document.getElementById('svg'));
 words.visible = true; // Turn off the effect of display:none;
 window.words = words
 
-var theRectangleWithTheHole = Path.Rectangle(0, 0, 1000, 1000)
-theRectangleWithTheHole.fillColor = "blue"
+var theBigRectangle = Path.Rectangle(0, 0, 1000, 1000)
+theBigRectangle.fillColor = "blue"
 
 var theRectangleToBeCutOut = Path.Rectangle(10, 10, 100, 100)
 theRectangleToBeCutOut.fillColor = "green"
 
-var result = theRectangleWithTheHole.subtract(theRectangleToBeCutOut)
+var result = theBigRectangle.subtract(theRectangleToBeCutOut)
 theRectangleToBeCutOut.visible = false
-theRectangleWithTheHole.visible = false
+theBigRectangle.visible = false
 result.fillColor = "yellow"
 
 
