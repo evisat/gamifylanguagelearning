@@ -1,0 +1,11 @@
+{
+  "name": "gamifylanguagelearning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:evisat/gamifylanguagelearning.git",
+  "author": "SwiHack Team",
+  "license": "MIT",
+  "dependencies": {
+    "paper": "^0.12.4"
+  }
+}
