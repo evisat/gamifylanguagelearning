@@ -7,5 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "paper": "^0.12.4"
+  },
+  "devDependencies": {
+    "tachyons": "^4.10.0"
   }
 }

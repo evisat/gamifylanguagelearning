@@ -4,6 +4,13 @@ Our goal is to create a children's game which helps to learn the [Amharic langua
 
 ## Tech notes
 
+We are running this code just using a local web server, i.e.:
+
+```
+$ npm i
+$ python -m http.server
+```
+
 Sample commands to be used while playing with it in the browser
 
 ```
@@ -12,7 +19,6 @@ setInterval(() => {words.children.level1.children.level2.children.level3.childre
 words.children.level1.children.level2.children.level3.children.arrow1.visible = false
 false
 ```
-
 
 ## To do
 
