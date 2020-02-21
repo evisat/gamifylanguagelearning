@@ -7,14 +7,23 @@
     <script src="./node_modules/paper/dist/paper-full.min.js"></script>
     <title>Gamify Language Learning</title>
     <script type="text/paperscript" src="js/myscript.js" canvas="myCanvas"></script>
+    <style>
+        html, body {
+            width:  100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        var ctx = document.getElementById('myCanvas')
+        ctx.canvas.width  = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
+    </script>
 </head>
 
 <body>
-    <svg style="visibility: hidden;" id="svg" width="313px" height="255px" viewBox="0 0 313 255" version="1.1"
+    <svg style="visibility: hidden;" id="svg" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
-        <title>Group 2</title>
-        <desc>Created with Sketch.</desc>
         <defs>
             <polygon id="path-1"
                 points="0.398438 0.488281 312.160156 0.488281 312.160156 254.648438 0.398438 254.648438"></polygon>
