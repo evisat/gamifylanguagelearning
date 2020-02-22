@@ -1,49 +1,82 @@
-var COL_MAX = 2;
-var COL_SIZE = 50;
-var ROW_SIZE = 30;
-var TOPX = 10, TOPY = 10;
+var game = {
+	COL_MAX: 		2,
+	COL_SIZE:		50,
+	ROW_SIZE:		30,
+	TOPX:				10,
+	TOPY:				10,
+
+	backgroundImage: null,
+	blueprintData: null,
+	letterImage: null,
+	letterGroup: null
+}
 
 paper.install(window);
 window.onload = function() {
 	paper.setup('myCanvas');
 
-var background = project.importSVG("assets/menu_bg.svg", {
+project.importSVG("assets/menu_bg.svg", {
 	expandShapes: true, onLoad: function(t) {
+		game.backgroundImage = t;
 		t.fitBounds(view.bounds);
 		t.sendToBack();
 	}
 });
 
-var letterGroup = new Group();
+project.importSVG("assets/menu_fg.svg", {
+	onLoad: function(t) {
+		game.letterImage = t;
+		t.fitBounds(view.bounds);
+		t.bringToFront();
+	}
+});
 
 Papa.parse("data/blueprint.csv", {
 	download: true, header: true,
 	complete: function(results) {
-		console.log(results);
-		let row = 0, col = 0;
-		results.data.forEach(function(t) {
-			var text = new PointText(
-				new Point(
-					TOPX + (col * COL_SIZE),
-					TOPY + (row * ROW_SIZE)
-				)
-			);
-			text.fillColor = 'black';
-			text.content = t.amharic;
-			letterGroup.addChild(text);
-
-			if (col++ == COL_MAX + row % 2) {
-				col = 0; row++;
-			}
-		}); //- forEach
-
-		letterGroup.fitBounds(view.bounds);
-		// letterGroup.position = view.center;
-		// letterGroup.scale(3.0);
+		game.blueprintData = results.data;
 	}
 });
 
+function initGame() {
 
+	game.letterGroup = new Group();
+
+	let row = 0, col = 0;
+	game.blueprintData.forEach(function(t) {
+		var text = new PointText(
+			new Point(
+				game.TOPX + (col * game.COL_SIZE),
+				game.TOPY + (row * game.ROW_SIZE)
+			)
+		);
+		text.fillColor = 'black';
+		text.content = t.amharic;
+		game.letterGroup.addChild(text);
+
+		if (col++ == game.COL_MAX + row % 2) {
+			col = 0; row++;
+		}
+	}); //- forEach
+
+	game.letterGroup.fitBounds(view.bounds);
+	// letterGroup.position = view.center;
+	// letterGroup.scale(3.0);
+
+} // -initGame
+
+
+
+function checkGameLoaded() {
+	if (
+		game.backgroundImage != null &&
+		game.blueprintData != null &&
+		game.letterImage != null
+	)
+		return initGame();
+	setTimeout(checkGameLoaded, 200);
+}
+setTimeout(checkGameLoaded, 200);
 
 // Adapted from the following Processing example:
 // http://processing.org/learning/topics/follow3.html
