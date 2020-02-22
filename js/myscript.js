@@ -27,6 +27,15 @@ var theBigRectangle = Path.Rectangle(0, 0, 1000, 1000)
 theBigRectangle.position = view.center
 theBigRectangle.fillColor = "blue"
 
+var backgroundLayer = new Layer()
+backgroundLayer.activate()
+var backgroundRectangle = Path.Rectangle(0,0,900,900)
+backgroundRectangle.position = view.center
+// backgroundRectangle.fillColor = "#3B3F46"
+backgroundRectangle.fillColor = new Color(59,63,70,0.25)
+words.copyTo(backgroundLayer)
+backgroundLayer.remove()
+
 var outlineLayer = new Layer()
 outlineLayer.activate()
 var result = theBigRectangle.subtract(outline)
@@ -54,6 +63,7 @@ var isMouseDown = false;
 
 path.add(startPosition);
 drawingLayer.remove()
+project.layers.push(backgroundLayer)
 project.layers.push(drawingLayer)
 project.layers.push(outlineLayer)
 drawingLayer.activate()
