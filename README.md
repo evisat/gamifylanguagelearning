@@ -22,7 +22,7 @@ false
 
 ## Research notes
 
-For a basic intro to the Amharic Alphabet, visit [Wikipedia](https://en.m.wikipedia.org/wiki/Ge%CA%BDez_script) and [WikiHow](https://m.wikihow.com/Write-in-Amharic). 
+For a basic intro to the Amharic Alphabet, visit [Wikipedia](https://en.m.wikipedia.org/wiki/Ge%CA%BDez_script) and [WikiHow](https://m.wikihow.com/Write-in-Amharic).
 
 ### Things to consider
 
@@ -60,19 +60,18 @@ Here are some related data resources that we have looked at:
 - [Refugee Phrasebook](https://refugeephrasebook.de/faq/)
 - [OpenWords](https://opensource.com/life/16/9/openwords)
 
-![](https://us-east-1.linodeobjects.com/dribdat/uploads/upload_5a112f9a5b9ce89968856e2c548766ef.jpg)
-
 # Mockups
 
 ![](https://us-east-1.linodeobjects.com/dribdat/uploads/upload_7440782726578131205f113f6463cd02.jpg)
-![](https://us-east-1.linodeobjects.com/dribdat/uploads/upload_4c54a000e5decf461f5f6a9b21f0d0ad.JPG)
 
 # Impressions
 
 Starting the project off with trying to spell our names.
+
 ![](https://us-east-1.linodeobjects.com/dribdat/uploads/upload_c97387bcdd7d4336ac5ff98a875f5868.JPG)
 
 T-1h: focus time
+
 ![](https://us-east-1.linodeobjects.com/dribdat/uploads/upload_1ee120397ec385454ecc4e12c981fe6e.JPG)
 
 # Demo
