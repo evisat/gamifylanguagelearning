@@ -23,3 +23,4 @@ false
 ## To do
 
 1. Dragging/Drawing the chain inside the letter cutout
+2. Investigate layers in paper.js
