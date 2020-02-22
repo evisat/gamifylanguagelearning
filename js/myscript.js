@@ -1,3 +1,17 @@
+var strokes = [{
+    outline: "outline1",
+    guideline: "stroke1",
+    startArrow: "startArrow1",
+    endArrow: "endArrow1",
+    otherArrows: ["arrow1_1"]
+}, {
+    outline: "outline2",
+    guideline: "stroke2",
+    startArrow: "startArrow2",
+    endArrow: "endArrow2"
+}]
+
+
 // Imported SVG Groups have their applyMatrix flag turned off by
 // default. This is required for SVG importing to work correctly. Turn
 // it on now, so we don't have to deal with nested coordinate spaces.
