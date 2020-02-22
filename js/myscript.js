@@ -4,18 +4,18 @@
 var words = project.importSVG(document.getElementById('svg'));
 words.visible = true; // Turn off the effect of display:none;
 window.words = words
+words.position = view.center
+var outline = words.children.level1.children.level2.children.level3.children.outline
 
 var theBigRectangle = Path.Rectangle(0, 0, 1000, 1000)
+theBigRectangle.position = view.center
 theBigRectangle.fillColor = "blue"
 
-var theRectangleToBeCutOut = Path.Rectangle(10, 10, 100, 100)
-theRectangleToBeCutOut.fillColor = "green"
-
-var result = theBigRectangle.subtract(theRectangleToBeCutOut)
-theRectangleToBeCutOut.visible = false
+var result = theBigRectangle.subtract(outline)
 theBigRectangle.visible = false
+outline.visible = false
 result.fillColor = "yellow"
-result.position = view.center
+window.result = result
 
 // words.fillColor = null;
 // words.strokeColor = 'black';
