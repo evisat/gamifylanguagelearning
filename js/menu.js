@@ -24,10 +24,24 @@ project.importSVG("assets/menu_bg.svg", {
 });
 
 project.importSVG("assets/menu_fg.svg", {
-	onLoad: function(t) {
-		game.letterImage = t;
-		t.fitBounds(view.bounds);
-		t.bringToFront();
+	onLoad: function(letters) {
+		game.letterImage = letters;
+		letters.fitBounds(view.bounds);
+		letters.bringToFront();
+
+		letters.children.forEach(function(t) {
+
+			t.onMouseEnter = function(event) {
+				t.fillColor = 'red';
+			}
+			t.onMouseLeave = function(event) {
+				t.fillColor = 'black';
+			}
+			t.onMouseDown = function(event) {
+				location.href = 'game.html';
+			}
+
+		});
 	}
 });
 
@@ -50,15 +64,8 @@ function initGame() {
 				game.TOPY + (row * game.ROW_SIZE)
 			)
 		);
-		text.fillColor = 'white';
+		text.fillColor = 'transparent';
 		text.content = t.amharic;
-
-		text.onMouseEnter = function(event) {
-			text.fillColor = 'red';
-		}
-		text.onMouseLeave = function(event) {
-			text.fillColor = 'black';
-		}
 
 		game.letterGroup.addChild(text);
 
