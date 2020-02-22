@@ -2,6 +2,7 @@
 // default. This is required for SVG importing to work correctly. Turn
 // it on now, so we don't have to deal with nested coordinate spaces.
 var words = project.importSVG(document.getElementById('svg'));
+window.project = project
 words.visible = true; // Turn off the effect of display:none;
 window.words = words
 words.position = view.center
@@ -11,40 +12,49 @@ var theBigRectangle = Path.Rectangle(0, 0, 1000, 1000)
 theBigRectangle.position = view.center
 theBigRectangle.fillColor = "blue"
 
+var outlineLayer = new Layer()
+outlineLayer.activate()
 var result = theBigRectangle.subtract(outline)
 theBigRectangle.visible = false
 outline.visible = false
 result.fillColor = "yellow"
-window.result = result
+result.visible = false
+var newResult = result.copyTo(outlineLayer)
+window.newResult = newResult
+newResult.visible = true
+outlineLayer.remove()
 
-// words.fillColor = null;
-// words.strokeColor = 'black';
-// var yesGroup = words.children.yes;
+var startPosition = words.children.level1.children.level2.children.level3.children.line1.segments[0].point;
 
-// var noGroup = words.children.no;
-// // Resize the words to fit snugly inside the view:
-// words.fitBounds(view.bounds);
-// words.scale(0.8);
+var drawingLayer = new Layer()
+drawingLayer.activate()
 
-// yesGroup.position = view.center;
-// noGroup.position = [-900, -900];
+var path = new Path({
+	strokeColor: '#E4141B',
+	strokeWidth: 100,
+	strokeCap: 'round'
+});
 
-// function onMouseMove(event) {
-//     noGroup.position = event.point;
-//     for (var i = 0; i < yesGroup.children.length; i++) {
-//         for (var j = 0; j < noGroup.children.length; j++) {
-//             showIntersections(noGroup.children[j], yesGroup.children[i])
-//         }
-//     }
-// }
+var isMouseDown = false;
 
-// function showIntersections(path1, path2) {
-//     var intersections = path1.getIntersections(path2);
-//     for (var i = 0; i < intersections.length; i++) {
-//         new Path.Circle({
-//             center: intersections[i].point,
-//             radius: 5,
-//             fillColor: '#009dec'
-//         }).removeOnMove();
-//     }
-// }
+path.strokeColor = '#e08285';
+path.add(startPosition);
+drawingLayer.remove()
+project.layers.push(drawingLayer)
+project.layers.push(outlineLayer)
+drawingLayer.activate()
+
+function onMouseMove(event) {
+    if (isMouseDown == true) {
+        path.add(event.point);
+        path.smooth({ type: 'continuous' });
+    }
+}
+
+function onMouseDown(event) {
+    isMouseDown = true;    
+}
+
+function onMouseUp(event) {
+    isMouseDown = false;
+}
