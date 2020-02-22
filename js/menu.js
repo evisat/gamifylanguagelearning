@@ -7,8 +7,7 @@ var game = {
 
 	backgroundImage: null,
 	blueprintData: null,
-	letterImage: null,
-	letterGroup: null
+	letterImage: null
 }
 
 paper.install(window);
@@ -33,6 +32,13 @@ project.importSVG("assets/menu_fg.svg", {
 
 			t.onMouseEnter = function(event) {
 				t.fillColor = 'red';
+
+				// console.log(t.name);
+				game.letterHint.content = '!!!';
+				game.blueprintData.forEach(function(x) {
+					if (t.name.indexOf(x.path + '') > 0)
+						game.letterHint.content = x.amharic + '\n\n' + x.phonetic;
+				});
 			}
 			t.onMouseLeave = function(event) {
 				t.fillColor = 'black';
@@ -54,8 +60,16 @@ Papa.parse("data/blueprint.csv", {
 
 function initGame() {
 
+	game.letterHint = new PointText(
+		new Point(100, 100)
+	);
+	game.letterHint.fillColor = 'black';
+	game.letterHint.content = '';
+	game.letterHint.scale(3.0);
+
 	game.letterGroup = new Group();
 
+	game.letterRef = {};
 	let row = 0, col = 0;
 	game.blueprintData.forEach(function(t) {
 		var text = new PointText(
@@ -66,9 +80,8 @@ function initGame() {
 		);
 		text.fillColor = 'transparent';
 		text.content = t.amharic;
-
+		game.letterRef[t.amharic] = t;
 		game.letterGroup.addChild(text);
-
 		if (col++ == game.COL_MAX + row % 2) {
 			col = 0; row++;
 		}
