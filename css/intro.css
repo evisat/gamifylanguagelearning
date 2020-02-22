@@ -1,0 +1,14 @@
+body {
+  background-image: url(/assets/border.svg);
+  background-color: #f5f5e5;
+  padding:0; margin:0;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  text-align: center;
+}
+
+img {
+  margin: 10%;
+  width: 80%;
+}

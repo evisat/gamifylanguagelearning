@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
 
+    <link rel="stylesheet" href="css/speech.css">
+    <link rel="stylesheet" href="css/game.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.2/paper-full.min.js" integrity="sha256-xT9jNx8tzepeeLwMeN985td1KYlkEOZJ/ReF9XMLoMU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js" integrity="sha256-Fh801SO9gqegfUdkDxyzXzIUPWzO/Vatqj8uN+5xcL4=" crossorigin="anonymous"></script>
 
@@ -14,28 +17,19 @@
 
     <script src="js/menu.js" canvas="myCanvas"></script>
 
-    <style>
-
-body {
-    /*background-image: url(assets/border.svg);
-    background-color: #f5f5e5;*/
-    padding: 0;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    /* margin-top: 10%; */
-}
-
-#myCanvas {
-    width: 100%;
-    height: 100%
-}
-    </style>
 </head>
 
 <body>
     <canvas id="myCanvas" resize></canvas>
-</body>
 
+    <div class="speech" onclick="document.getElementById('b').classList.remove('hidden')">
+      <p class="bubble hidden" id="b">
+        Here you can see all the 'mother' letters in our
+        alphabet, called Fidäl (ፊደል), or abugida (አቡጊዳ).
+        Try moving your finger over the letters &#128070;
+        tap any one to continue.
+
+      </p>
+    </div>
+</body>
 </html>

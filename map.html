@@ -7,28 +7,26 @@
     <title>Ha:Hu</title>
 
     <script src="./node_modules/paper/dist/paper-full.min.js"></script>
-    <script src="./node_modules/papaparse/papaparse.min.js"></script>
 
-    <!-- <script src="js/menu.js" canvas="myCanvas"></script> -->
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/speech.css">
 
-    <style>
-body { background-image: url(assets/border.svg); background-color: #f5f5e5; padding:0; margin:0; background-repeat: no-repeat; background-position: center; }
+    <style type="text/css">
 
-#myCanvas {
-    width: 100%; height: 100%; background: #fafafa
-}
+    body {
+      overflow: hidden;
+    }
 
-.svg-container {
-  margin: 60px auto;
-    width: 50%;
-}
-svg {
-  width: 100%;
-}
+    .svg-container svg {
+      margin: 5% 15%;
+      width: 70%;
+    }
 
-path#path1:hover {
-  fill: #868864;
-}
+    path#path1:hover {
+      fill: #868864;
+      cursor: pointer;
+    }
+
     </style>
 </head>
 
@@ -81,6 +79,14 @@ path#path1:hover {
           window.location.href = "./menu.html";
       });
     </script>
+
+    <div class="speech">
+      <p class="bubble fader">
+        On <a href="https://en.wikipedia.org/wiki/International_Mother_Language_Day">Int'l Mother Language Day 2020</a>, we made this!
+        In this map, you'll see about how many people like me around the world speak and write in the <a href="https://en.wikipedia.org/wiki/Amharic">Amharic language</a>.
+        There are over 20 million of us! Try to find <b>Amhara</b> &#128070;
+      </p>
+    </div>
 </body>
 
 </html>

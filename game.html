@@ -8,15 +8,13 @@
     <!-- <script src="node_modules/paper/dist/paper-full.min.js"></script> -->
     <title>Gamify Language Learning</title>
     <script type="text/paperscript" src="js/myscript.js" canvas="myCanvas"></script>
-    <style>
-        #myCanvas {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+
+    <link rel="stylesheet" href="css/speech.css">
+    <link rel="stylesheet" href="css/game.css">
+
 </head>
 
-<body style="background-color: white; height: 100vh; width: 100%;">
+<body>
     <canvas id="myCanvas" resize></canvas>
     <svg style="visibility: hidden; height: 0px; width: 0px;" id="svg" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -58,6 +56,16 @@
             </g>
         </g>
     </svg>
+
+    <div class="speech" onclick="document.getElementById('b').classList.remove('hidden')">
+      <p class="bubble hidden" id="b">
+        Finally we come to the main part of our game idea &#128070;
+        move your finger/ click and drag the mouse over the letter
+        to paint it in.
+        <b>Thanks for playing!</b>
+        You can also <a href="/">Start Over</a>
+      </p>
+    </div>
 </body>
 
 </html>

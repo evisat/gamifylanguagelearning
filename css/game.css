@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+}
+body {
+  /*background-image: url(assets/border.svg);
+  background-color: #f5f5e5;*/
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  /* margin-top: 10%; */
+  cursor: pointer;
+}
+
+#myCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0 !important;
+}
