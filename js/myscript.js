@@ -21,6 +21,7 @@ words.visible = true; // Turn off the effect of display:none;
 window.words = words
 words.position = view.center
 var outline = words.children.level1.children.level2.children.level3.children.outline
+words.children.level1.children.level2.children.level3.children.arrow4.rotate(180)
 
 var theBigRectangle = Path.Rectangle(0, 0, 1000, 1000)
 theBigRectangle.position = view.center
@@ -31,7 +32,7 @@ outlineLayer.activate()
 var result = theBigRectangle.subtract(outline)
 theBigRectangle.visible = false
 outline.visible = false
-result.fillColor = "yellow"
+result.fillColor = "white"
 result.visible = false
 var newResult = result.copyTo(outlineLayer)
 window.newResult = newResult
@@ -44,14 +45,13 @@ var drawingLayer = new Layer()
 drawingLayer.activate()
 
 var path = new Path({
-	strokeColor: '#E4141B',
-	strokeWidth: 100,
+	strokeColor: '#000',
+	strokeWidth: 120,
 	strokeCap: 'round'
 });
 
 var isMouseDown = false;
 
-path.strokeColor = '#e08285';
 path.add(startPosition);
 drawingLayer.remove()
 project.layers.push(drawingLayer)
