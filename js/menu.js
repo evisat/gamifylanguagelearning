@@ -1,3 +1,50 @@
+var COL_MAX = 2;
+var COL_SIZE = 50;
+var ROW_SIZE = 30;
+var TOPX = 10, TOPY = 10;
+
+paper.install(window);
+window.onload = function() {
+	paper.setup('myCanvas');
+
+var background = project.importSVG("assets/menu_bg.svg", {
+	expandShapes: true, onLoad: function(t) {
+		t.fitBounds(view.bounds);
+		t.sendToBack();
+	}
+});
+
+var letterGroup = new Group();
+
+Papa.parse("data/blueprint.csv", {
+	download: true, header: true,
+	complete: function(results) {
+		console.log(results);
+		let row = 0, col = 0;
+		results.data.forEach(function(t) {
+			var text = new PointText(
+				new Point(
+					TOPX + (col * COL_SIZE),
+					TOPY + (row * ROW_SIZE)
+				)
+			);
+			text.fillColor = 'black';
+			text.content = t.amharic;
+			letterGroup.addChild(text);
+
+			if (col++ == COL_MAX + row % 2) {
+				col = 0; row++;
+			}
+		}); //- forEach
+
+		letterGroup.fitBounds(view.bounds);
+		// letterGroup.position = view.center;
+		// letterGroup.scale(3.0);
+	}
+});
+
+
+
 // Adapted from the following Processing example:
 // http://processing.org/learning/topics/follow3.html
 
@@ -38,3 +85,6 @@ function onMouseUp(event) {
 	path.fullySelected = false;
 	path.strokeColor = '#e4141b';
 }
+
+
+}; // -window.onload
